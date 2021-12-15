@@ -86,14 +86,14 @@ title('Espectro de señal modulada |Y(f)|')
 xlabel('f');
 ylabel('|Y(f)|')
 
-%Diseñamos el filtro FIR Asimetrico con M=101
+%Diseñamos el filtro FIR Asmetrico con M=101
 
-M_filtro=101;
-B=B(M_filtro);
+M_filtro = 101;
+B = B(M_filtro);
 H = [zeros(1,7) 0.2 0.8 ones(1,11) 0.8 0.2 zeros(1,28)]';
-w=-pi:0.001:pi;
-h=inv(B)*H;
-h=[h;0;-flipud(h)];
+w = -pi:0.001:pi;
+h = inv(B)*H;
+h = [h;0;-flipud(h)];
 figure(11)
 stem(h);
 axis([0 100 -0.25 0.25])
@@ -133,7 +133,7 @@ grid on
 
 %DEMODULACION 
 
-r_n=yssb(50:250).*c_n; 
+r_n=yssb(50:850).*c_n; 
 figure(15)
 stem(r_n)
 axis([0 200 -4 6])
